@@ -23,15 +23,10 @@ CREATE TABLE IF NOT EXISTS votes (
   PRIMARY KEY (date, email)
 );
 
-CREATE TABLE IF NOT EXISTS counts (
-  restaurant_id INTEGER PRIMARY KEY,
-  counts INTEGER
-);
-
-INSERT INTO restaurants (title) VALUES ('B5');
-INSERT INTO restaurants (title) VALUES ('Piazetta');
-INSERT INTO restaurants (title) VALUES ('Bernerhof');
-INSERT INTO restaurants (title) VALUES ('Chrigus Beck');
+INSERT INTO restaurants (title, count) VALUES ('B5', 5);
+INSERT INTO restaurants (title, count) VALUES ('Piazetta', 11);
+INSERT INTO restaurants (title, count) VALUES ('Bernerhof', 20);
+INSERT INTO restaurants (title, count) VALUES ('Chrigus Beck', 20);
 
 INSERT INTO employees(email, name) VALUES ('sw@studer-raimann.ch', 'Stefan Wanzenried');
 INSERT INTO employees(email, name) VALUES ('fs@studer-raimann.ch', 'Fabian Schmid');
@@ -42,7 +37,8 @@ INSERT INTO employees(email, name) VALUES ('pz@studer-raimann.ch', 'Patricia Zub
 INSERT INTO employees(email, name) VALUES ('gc@studer-raimann.ch', 'Gabriel Comte');
 INSERT INTO employees(email, name) VALUES ('mr@studer-raimann.ch', 'Marcel Raimann');
 INSERT INTO employees(email, name) VALUES ('ns@studer-raimann.ch', 'Nicolas Schäfli');
-INSERT INTO employees(email, name) VALUES ('ss@studer-raimann.ch', 'Silas Stulz');
+INSERT INTO employees(email, name) VALUES ('sst@studer-raimann.ch', 'Silas Stulz');
 INSERT INTO employees(email, name) VALUES ('nm@studer-raimann.ch', 'Nicolas Märchy');
 INSERT INTO employees(email, name) VALUES ('ms@studer-raimann.ch', 'Martin Studer');
 INSERT INTO employees(email, name) VALUES ('jg@studer-raimann.ch', 'Johnny Gerber');
+

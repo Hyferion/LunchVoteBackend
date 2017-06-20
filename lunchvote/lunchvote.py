@@ -114,10 +114,12 @@ def splitting():
     db = get_db()
     try:
         data = json.loads(request.form['data'])
+        print data
         for row in data:
+            print row
             db.execute('UPDATE restaurants SET count = count - ? '
-                       'WHERE id = ? AND count <= ?', (row['count'], row['restaurant_id'], row['count']))
-        db.commit()
+                       'WHERE id = ? AND count >= ?', (row['count'], row['restaurant_id'], row['count']))
+            db.commit()
         return "Splitting successful"
     except Exception as e:
         print e
@@ -128,8 +130,13 @@ def splitting():
 def lunch():
     db = get_db()
     try:
-        cur = db.execute('SELECT title FROM restaurants ORDER BY count DESC, RANDOM() LIMIT 1')
-        return cur.fetchone()[0]
+        cur = db.execute('SELECT id, title FROM restaurants ORDER BY count DESC, RANDOM() LIMIT 1')
+        restaurant = cur.fetchone()
+        # print restaurant
+        # print restaurant[0]
+        db.execute('UPDATE restaurants SET count = 0 WHERE id = ?', (str(restaurant[0])))
+        db.commit()
+        return str(restaurant[0])
     except Exception as e:
         print e
         abort(500)
