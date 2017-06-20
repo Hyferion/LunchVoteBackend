@@ -1,0 +1,9 @@
+MANIFEST.in
+lunchvote/__init__.py
+lunchvote/lunchvote.py
+lunchvote/schema.sql
+lunchvote.egg-info/PKG-INFO
+lunchvote.egg-info/SOURCES.txt
+lunchvote.egg-info/dependency_links.txt
+lunchvote.egg-info/requires.txt
+lunchvote.egg-info/top_level.txt

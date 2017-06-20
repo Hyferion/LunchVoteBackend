@@ -1,0 +1,1 @@
+from .lunchvote import app
