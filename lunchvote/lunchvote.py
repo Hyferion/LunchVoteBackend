@@ -3,7 +3,7 @@ import sqlite3
 import json
 import datetime
 from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash
+    render_template, flash
 
 app = Flask(__name__)  # create the application instance :)
 app.config.from_object(__name__)  # load config from this file , lunchvote.py
@@ -58,7 +58,7 @@ def close_db(error):
 @app.route('/restaurants', methods=['GET'])
 def get_restaurants():
     db = get_db()
-    cur = db.execute('SELECT id,title,description,street,count FROM restaurants ORDER by title ASC')
+    cur = db.execute('SELECT id,title,description,street,count FROM restaurants ORDER BY title ASC')
     out = []
     for row in cur.fetchall():
         out.append({
@@ -140,6 +140,12 @@ def lunch():
     except Exception as e:
         print e
         abort(500)
+
+
+@app.route('/submitres', methods=['POST'])
+def submitres():
+    db = get_db()
+    db.execute('INSERT INTO restaurants (title) VALUES (?)')
 
 
 @app.after_request

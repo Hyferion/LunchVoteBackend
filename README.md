@@ -1,4 +1,4 @@
-## Installation
+ ## Installation
 
 1. Clone this repository
 2. Navigate to the project root and execute on the command line
